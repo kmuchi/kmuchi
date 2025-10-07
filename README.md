@@ -10,8 +10,8 @@
 </div>
 
 
-[![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=rlaclgns123@naver.com)](https://solved.ac/rlaclgns123@naver.com)
+[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=gack)](https://solved.ac/gack)
+
 
 
 <!--
