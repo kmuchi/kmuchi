@@ -1,5 +1,5 @@
 ## Hi there 👋
-안녕하세요.
+안녕하세요
 <div  align=center><h3>STACKS</h1></div>
 
 <div  align=center> 
