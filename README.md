@@ -23,26 +23,30 @@
 </div>
 
 <div align="center">
-
-# [ProTalkAll] 비지니스 언어매너 학습 프로그램
-*(2026.01 ~ 2026.02 / 6인 팀프로젝트)*
+  <h3>[ProTalkAll] 비지니스 언어매너 학습 프로그램</h3>
+  <p>2026.01 ~ 2026.02 / 6인 팀프로젝트</p>
+</div>
 
 <br>
 
-> **한줄 소개:** 사회초년생을 위한 비즈니스 언어 학습 및 케어 AI SaaS
-
-</div>
-
-
 <details>
-<summary><b> ProTalkAll </b></summary>
-<br />
-### 담당역할
-프론트엔드 개발 및 UI/UX 디자인, 기획 및 전체 파이프라인(API, ERD, QC) 참여
-Figma 기반의 엄격한 디자인 시스템 구축
-SaaS 환경에 맞는 반응형/접근성 고려
+<summary><b>💡 한줄 소개: 사회초년생을 위한 비즈니스 언어 학습 및 케어 AI SaaS (클릭해서 상세 보기)</b></summary>
+<br>
+
+### 🛠️ 담당 역할
+* **프론트엔드 개발 및 UI/UX 디자인, 기획 및 전체 파이프라인(API, ERD, QC) 참여**
+* Figma 기반의 엄격한 디자인 시스템 구축
+* SaaS 환경에 맞는 반응형/접근성 고려
+
+### 📸 프로젝트 시연 및 이미지
+<!-- 💡 아래 '이미지 URL' 부분에 실제 이미지나 GIF 주소를 넣으시면 됩니다 -->
+<p align="center">
+  <img src="https://via.placeholder.com/600x400" width="80%" alt="ProTalkAll 서비스 이미지">
+</p>
 
 </details>
+
+---
 
 <div  align=center> 
 <a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=kmuchi&utm_content=farm">
