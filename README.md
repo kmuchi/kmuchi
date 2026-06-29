@@ -188,10 +188,14 @@
 
   <!-- 이미지는 다시 가운데 정렬 -->
   <p align="center">
-      <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/dd6e3376-7172-4893-8ad1-530d963d1911" />
-        <img width="400" height="300" alt="image (1)" src="https://github.com/user-attachments/assets/e692c5d2-f94e-42a8-bd5f-d2009776c2ec" />
-        <img width="400" height="300" alt="스크린샷 2026-02-06 145028" src="https://github.com/user-attachments/assets/33ac947f-ccb4-44c4-bc91-8eda4a452323" />
-        <img width="400" height="300" alt="스크린샷 2026-02-05 152723" src="https://github.com/user-attachments/assets/0e11e788-b6d3-4a0a-b9e1-88dd73d283ed" />
+      <img width="400"  alt="스크린샷 2026-02-06 145028" src="https://github.com/user-attachments/assets/33ac947f-ccb4-44c4-bc91-8eda4a452323" />
+      <img width="400"  alt="스크린샷 2026-02-05 152723" src="https://github.com/user-attachments/assets/0e11e788-b6d3-4a0a-b9e1-88dd73d283ed" />
+      <img width="400"  alt="스크린샷 2026-02-05 102951" src="https://github.com/user-attachments/assets/127fbffe-2996-4ef7-8066-2bc157a1bed9" />
+      <img width="400"  alt="스크린샷 2026-02-05 103034" src="https://github.com/user-attachments/assets/e560186c-100b-47e5-ad91-3fefb8937ca9" />
+      <img width="400"  alt="스크린샷 2026-02-04 145602" src="https://github.com/user-attachments/assets/955e0827-8f3f-4b01-8a9d-25a4002d85fc" />
+      <img width="400"  alt="image" src="https://github.com/user-attachments/assets/dd6e3376-7172-4893-8ad1-530d963d1911" />
+      <img width="400"  alt="image (1)" src="https://github.com/user-attachments/assets/e692c5d2-f94e-42a8-bd5f-d2009776c2ec" />
+
 
   </p>
 
