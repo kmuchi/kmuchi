@@ -246,6 +246,118 @@
 
 
 ---
+
+<div align="center">
+
+### [Ausori] 오디오 효과음 자동 매칭 서비스
+2026.04 ~ 2026.06 / 6인 팀프로젝트 (SSAFY 전시발표회 발표부문 3등 / 자율 프로젝트 1등)
+
+<details>
+<summary style="cursor: pointer; text-align: center; list-style: none;"><b>💡 한줄 소개: 영상만 넣으면 오디오 효과음을 AI가 자동으로 배치해주는 SaaS</b></summary>
+
+<br>
+
+<div align="left" style="max-width: 800px; margin: 0 auto; padding: 0 10px;">
+
+
+## 1. 프로젝트 개요 (Overview)
+### 💡 기획 배경 및 문제 정의
+유튜브, 틱톡, 인스타그램 등 1인 미디어 크리에이터 시장이 급격히 성장하면서 영상 편집의 수요가 폭발적으로 증가했습니다. 하지만 영상의 몰입도를 결정하는 **사운드 디자인(효과음/폴리/배경음 배치)**은 다음과 같은 비효율이 존재합니다.
+* **시간 낭비**: 수만 개의 효과음 플랫폼에서 키워드로 사운드를 일일이 검색하고 청취해야 합니다.
+* **전문성 요구**: 타임라인에 정확한 타이밍으로 배치하고, 볼륨 믹싱 및 트랙 분리를 하는 과정은 고도의 편집 숙련도가 필요합니다.
+* **진입 장벽**: 이러한 사운드 작업의 난이도로 인해 많은 초급 크리에이터들이 사운드 디자인을 생략하거나 단순하게 처리하여 영상 품질 저하를 겪습니다.
+---
+
+## 2. 핵심 기능 (Key Features)
+1. **AI 멀티모달 기반 자동 사운드 디자인**
+   * 영상을 업로드하면 1fps 단위 프레임 및 컷 편집점을 감지하여 장면 맥락 분석.
+   * **6트랙 분류 모델**: 대사(Voice), 음악(BGM), 배경 분위기음(Ambience), 일상 행동음(Foley), 연출 효과음(SFX), 극적 연출음(Cinematic)을 구분하여 타임라인에 최적 배치.
+   * 각 사운드 이벤트마다 **Top 3~5개의 대체 사운드 후보군** 및 **신뢰도(Confidence)** 매칭.
+2. **웹 기반 고성능 멀티트랙 사운드 에디터**
+   * Canvas API(Konva) 기반의 매끄러운 캔버스 조작을 통한 멀티트랙 타임라인 인터페이스 제공.
+   * AI가 제안한 사운드 블록을 드래그 앤 드롭으로 타이밍 미세 조정 가능.
+   * 클릭 한 번으로 AI가 제안한 대체 사운드 목록에서 교체 지원.
+   * 트랙별 볼륨 믹서 및 마스터 렌더링.
+---
+
+## 3. 기술 스택 (Tech Stack)
+### Client (Frontend)
+* **Framework**: Next.js 16 (App Router)
+* **Language**: TypeScript
+* **State Management**: Zustand
+* **Graphics / UI**: Tailwind CSS v4, Lucide-React, Recharts (데이터 대시보드)
+* **Canvas Library**: Konva, React-Konva (고성능 타임라인 편집 캔버스 렌더링)
+* **Media Processing**: @ffmpeg/ffmpeg (브라우저 내 클라이언트 사이드 미디어 유틸리티)
+* **Authentication**: @react-oauth/google (구글 소셜 로그인)
+### Server (Backend)
+* **Runtime**: Node.js (v22 LTS)
+* **Language**: TypeScript
+* **Framework**: Express 5.1.0
+* **Database**: PostgreSQL (pg), Redis (connect-redis를 활용한 고성능 세션 관리 및 작업 큐)
+* **Storage**: AWS S3 (Presigned URL을 통한 비디오/오디오 소스 보안 전송)
+* **Validation**: Zod (타입 안정성을 갖춘 요청 본문 및 환경 변수 검증)
+* **Payment**: Toss Payments SDK
+### AI Worker Server
+* **Language**: Python 3
+* **Queue / Broker**: Redis Pub/Sub, Redis Polling (비동기 배치 워커)
+* **Models / APIs**: Google Generative AI (Gemini 2.5 Flash 기반의 멀티모달 영상 맥락 요약 및 큐 시트 작성), VLM(Visual Language Model) 분석 엔진
+* **Audio Tech**: pyloudnorm (Loudness Normalize), Soundfile, Scipy, Numpy, Librosa
+* **Observability**: Langfuse (AI 응답 추적, 프롬프트 엔지니어링 성능/비용 모니터링)
+---
+
+## 4. 핵심 기술 구현 및 문제 해결 (Technical Accomplishments)
+### 🛠️ 1. Redis Queue 기반의 비동기 AI 파이프라인 아키텍처
+* **문제**: 영상 분석 및 사운드 매칭(멀티모달 모델 호출, 오디오 매칭 검색 등)은 연산이 무겁고 수십 초에서 수 분의 시간이 소요되므로 동기식 HTTP 요청으로 처리 시 타임아웃 발생 및 서버 자원 고갈 위험이 컸습니다.
+* **해결**: Express 백엔드와 Python AI Worker를 철저하게 격리했습니다. 백엔드가 S3 업로드 후 **Redis 작업 큐(Job Queue)**에 작업을 생성하면, 비동기 파이프라인 워커가 이를 순차적으로 가져가(Polling) 분석을 수행하도록 설계했습니다.
+* **결과**: 무거운 연산 중에도 백엔드는 즉각 클라이언트에 작업 등록 응답을 주어 높은 연결 안정성을 확보하였으며, Redis를 통해 클라이언트에게 `scene_splitting -> analyzing -> matching -> done` 형태로 실시간 진행 상태(Progress)를 피드백하는 완성도 높은 UX를 구현했습니다.
+### 🔬 2. Soft & Hard 트랙 분리 및 2-Cycle 프롬프트 파이프라인
+* **문제**: 오디오의 성격에 따라 필요한 공간적 특징(예: 바람 소리, 카페 소음 등 지속적인 Ambience)과 행동적 특징(예: 발소리, 총소리, 타격음 등 순간적인 Foley)이 다릅니다. 이 모든 소리를 하나의 프롬프트나 동일한 알고리즘으로 추출하려 하면 환각(Hallucination) 현상이 발생하거나 타이밍의 정교함이 어긋났습니다.
+* **해결**: 사운드를 **Soft 트랙**(배경음, 음악, 연출 드론)과 **Hard 트랙**(발소리, 동작음, 순간 SFX)으로 완전 분리하고, **2-Cycle** 분석을 설계했습니다.
+  * **1-Cycle (글로벌 분석)**: 영상 전체 프레임을 보고 영상 장르, 전반적 분위기, 주요 공간을 파악하여 글로벌 Context JSON 생성.
+  * **2-Cycle (구간/행동 분석)**: 1-Cycle Context를 주입받아 특정 컷 구간의 영상만을 세부적으로 다시 스캐닝하여 카테고리(category_path)와 시간대, 설명(description)을 정밀하게 추출.
+* **결과**: AI 분석의 정밀도가 크게 상승하였고, 영상 내에서 쌩뚱맞은 사운드가 매칭되는 문제를 크게 개선했습니다.
+### 🔍 3. 벡터 임베딩 유사도 검색을 활용한 사운드 추천 시스템
+* **문제**: LLM이 사운드 파일명을 직접 지목하게 하는 것은 파일명이 변경되거나 새로운 사운드 에셋이 추가되는 경우 유연하게 대처할 수 없으며 정확한 선택이 불가능했습니다.
+* **해결**: AI 분석 파이프라인을 **"현상 분석 및 요구 사운드 기술(Text Description)"**과 **"실제 사운드 검색(Search Retrieval)"**의 두 레이어로 분리했습니다.
+  * AI Worker는 장면에 필요한 소리를 텍스트 설명(ex: *"인물이 콘크리트 바닥을 걸으며 착지하는 발소리"*)과 카테고리로 정의합니다.
+  * 사운드 라이브러리의 모든 에셋에 대해 사전에 텍스트 임베딩을 구축하고, **벡터 검색 유사도 매칭**을 수행해 카테고리가 일치하면서 가장 유사도가 높은 최적 사운드를 검색합니다.
+* **결과**: AI 모델 변경이나 사운드 라이브러리 추가가 있더라도 시스템 수정 없이 완벽히 호환되는 확장성 있는 아키텍처를 설계했습니다.
+### 🎨 4. Canvas API (Konva) 기반의 고성능 멀티트랙 타임라인 에디터
+* **문제**: HTML5 Element 기반으로 사운드 블록(Div)을 만들어 수많은 트랙 위에 렌더링하면, 줌인/줌아웃, 여러 사운드의 동시 드래그 조작 및 스크롤 시 브라우저 Reflow로 인해 성능 저하와 버벅임이 유발되었습니다.
+* **해결**: Canvas 2D 기반 드로잉 래퍼 라이브러리인 **Konva**와 **React-Konva**를 활용해 전체 에디터 타임라인 영역을 캔버스로 구성했습니다.
+* **결과**: 수십 개의 사운드 노드 배치 및 실시간 파형(Waveform) 드로잉 연산 시에도 끊김 없이 60fps에 가까운 반응성을 보여주며 쾌적한 사운드 조작 경험을 제공했습니다.
+---
+
+
+
+
+## 5. 프로젝트 성과 및 성장 포인트 (Growth Points)
+* **도메인 지식의 융합**: AI 분석에 단순히 프롬프트 하나를 쓰는 데 머무르지 않고, 전문 음향 제작 단계의 큐 시트(Cue Sheet) 개념과 Soft/Hard 사운드 파이프라인의 개념을 결합하여, 실제 현업에서 사용할 수 있는 현실적인 MVP 구조를 직접 설계했습니다.
+* **비파괴 편집(Non-destructive Editing) 아키텍처 수립**: AI가 오디오를 직접 인코딩하여 영상을 합쳐 주는 무거운 구조 대신, 백엔드와 프론트엔드 간에 시간 데이터(JSON 타임라인)만을 교환하고 클라이언트 브라우저 단에서 재생/편집을 담당하며 최종 렌더링 시점에만 최종 오디오를 생성하도록 설계하여 엄청난 서버 비용 절감 및 무한 수정 가능한 환경을 제공했습니다.
+* **관측 가능성(Observability) 도입**: LLM 호출이 많은 프로젝트 특성상 **Langfuse**를 통합하여 파이프라인 내 단계별 프롬프트의 토큰 비용, Latency 및 환각 발생 빈도를 효과적으로 트래킹하고 프롬프트를 고도화할 수 있었습니다.
+
+
+</div>
+
+---
+
+<!-- 이미지는 다시 가운데 정렬 -->
+<div align="center">
+
+<img width="2659" height="1186" alt="image (2)" src="https://github.com/user-attachments/assets/bf177796-27fc-4cfc-8f0f-1804c5b19a32" />
+<img width="2862" height="1508" alt="스크린샷 2026-05-29 092503" src="https://github.com/user-attachments/assets/ecae030d-219a-4940-a9f2-e7dccf94bbc2" />
+<img width="877" height="806" alt="스크린샷 2026-05-30 184300" src="https://github.com/user-attachments/assets/69d7f309-96a0-4c80-8a44-cc4ba598775e" />
+<img width="2871" height="1511" alt="스크린샷 2026-05-29 092533" src="https://github.com/user-attachments/assets/1c14ff27-b1f0-44fb-8dfb-b9d1365f53a6" />
+
+
+</div>
+
+</details>
+
+</div>
+
+
+---
 <br>
 <br>
 <br>
