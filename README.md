@@ -38,22 +38,19 @@
 </div>
     
   <!-- [![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=gack)](https://solved.ac/gack) -->
+---
 
-## 🚀 Projects
-
-<!-- 큰 제목과 토글 버튼 라인까지만 깔끔하게 가운데 정렬하고 바로 닫기 -->
 <div align="center">
   <h3> [만화당] 만화 추천 서비스 </h3>
   <p>2025.12 / 2인 팀프로젝트</p>
-</div>
 
-<details>
-  <!-- summary 태그 안에 직접 텍스트 가운데 정렬 스타일을 부여합니다 -->
-  <summary style="cursor: pointer; text-align: center;"><b>💡 한줄 소개: 사용자 취향 분석 기반 만화 추천 및 커뮤니티 AI SaaS</b></summary>
+  <details>
+    <summary><b>💡 한줄 소개: 사용자 취향 분석 기반 만화 추천 및 커뮤니티 AI SaaS</b></summary>
+
+  <div align="left">
 
   <br>
 
-  <!-- 여기서부터는 감싸는 div가 없으므로 자동으로 깔끔하게 왼쪽 정렬됩니다 -->
   <h2>✨ 핵심 구현 및 성과</h2>
 
   <h3>🤖 LangChain 기반 고품질 번역 파이프라인</h3>
@@ -91,7 +88,6 @@
 
   <br>
 
-  <!-- 시스템 아키텍처 -->
   <h2>🛠️ 시스템 아키텍처 및 데이터 모델링</h2>
   <table width="100%">
     <thead>
@@ -126,25 +122,22 @@
 
   <br>
 
-  <!-- 트러블 슈팅 -->
   <h2>💡 트러블 슈팅</h2>
 
-  <div style="background-color: #f6f8fa; padding: 16px; border-left: 4px solid #dddee1; margin-bottom: 16px;">
-    <h3>🔥 LLM API 호출 지연 최적화 (Bottleneck 해결)</h3>
-    <p><b>문제 상황:</b> 고비용의 AI 번역 및 초개인화 추천 연산이 실시간으로 수행될 때 심각한 응답 지연(Bottleneck)이 발생하여 사용자 경험 저하 유발.</p>
-    <p><b>해결 방안:</b> 매번 무거운 AI 연산을 반복하지 않도록, 한번 생성된 번역 데이터와 프리미엄 리포트 결과물 전체를 JSON 구조로 규격화하여 로컬 데이터베이스에 캐싱(Look-Aside Pattern) 처리.</p>
-    <p><b>성과: 중복 요청 시 DB 캐시를 통해 즉각 응답하도록 아키텍처를 개선하여 API 호출 비용을 획기적으로 절감하고 페이지 로딩 속도를 극대화 달성.</b></p>
-  </div>
+  > ### 🔥 LLM API 호출 지연 최적화 (Bottleneck 해결)
+  > **문제 상황:** 고비용의 AI 번역 및 초개인화 추천 연산이 실시간으로 수행될 때 심각한 응답 지연(Bottleneck)이 발생하여 사용자 경험 저하 유발.
+  >
+  > **해결 방안:** 매번 무거운 AI 연산을 반복하지 않도록, 한번 생성된 번역 데이터와 프리미엄 리포트 결과물 전체를 JSON 구조로 규격화하여 로컬 데이터베이스에 캐싱(Look-Aside Pattern) 처리.
+  >
+  > **성과:** 중복 요청 시 DB 캐시를 통해 즉각 응답하도록 아키텍처를 개선하여 API 호출 비용을 획기적으로 절감하고 페이지 로딩 속도를 극대화 달성.
 
-  <div style="background-color: #f6f8fa; padding: 16px; border-left: 4px solid #dddee1; margin-bottom: 16px;">
-    <h3>🌐 분리 배포 환경에서의 CORS 및 Mixed Content 이슈</h3>
-    <p><b>문제 상황:</b> 프론트엔드(Vercel)와 백엔드(Railway)를 독립된 환경으로 분리 배포하는 과정에서 CORS 및 HTTPS Mixed Content 통신 에러 발생.</p>
-    <p><b>해결 방안:</b> 백엔드 시스템의 <code>django-cors-headers</code> 설정을 기반으로 <code>CORS_ALLOWED_ORIGINS</code>에 Vercel 도메인을 명시하였고, 프론트-백 배포 인프라 간 환경 변수를 정확히 매핑하여 크로스 오리진 상황에서의 안정적인 HTTPS 통신 궤도 확보.</p>
-  </div>
+  > ### 🌐 분리 배포 환경에서의 CORS 및 Mixed Content 이슈
+  > **문제 상황:** 프론트엔드(Vercel)와 백엔드(Railway)를 독립된 환경으로 분리 배포하는 과정에서 CORS 및 HTTPS Mixed Content 통신 에러 발생.
+  >
+  > **해결 방안:** 백엔드 시스템의 `django-cors-headers` 설정을 기반으로 `CORS_ALLOWED_ORIGINS`에 Vercel 도메인을 명시하였고, 프론트-백 배포 인프라 간 환경 변수를 정확히 매핑하여 크로스 오리진 상황에서의 안정적인 HTTPS 통신 궤도 확보.
 
   <br>
 
-  <!-- 회고 -->
   <h2>📝 프로젝트 회고</h2>
   <p>
     크롤러로 시작한 데이터 수집 구조를 효율적인 외부 API 아키텍처로 점진적 교체하고, 단순 번역 API의 표현력 한계를 LLM 파이프라인으로 해결해가며 <b>"상황에 맞게 시스템 구조를 유연하게 변경하고 문제를 주도적으로 해결하는 능력"</b>을 깊이 있게 길렀습니다.
@@ -154,21 +147,24 @@
   </p>
 
   <br>
-  <!-- 이미지 분리를 위한 가로 구분선 -->
   <hr />
   <br>
 
-  <!-- 이미지 섹션 부분만 콕 집어서 가운데 정렬 지정 -->
-  <div align="center">
+  </div>
+
+  <p align="center">
     <img width="400" alt="메인페이지" src="https://github.com/user-attachments/assets/88061d30-f506-44c4-89e1-df9519689e0b" />
     <img width="400" alt="어떤만화가 더 끌리나요" src="https://github.com/user-attachments/assets/28905c29-797b-4a12-b69f-4ec4b5e8d18d" />
     <img width="400" alt="추천만화결과" src="https://github.com/user-attachments/assets/1a552c81-bc2b-4d35-8aec-48e4f0fa901e" />
     <img width="400" alt="커뮤니티" src="https://github.com/user-attachments/assets/0bea30eb-425a-437a-be9a-351c62681f12" />
     <img width="400" alt="통합검색" src="https://github.com/user-attachments/assets/77ce31db-37f8-4fec-9bdb-04718711afac" />
     <img width="400" alt="프리미엄 리포트" src="https://github.com/user-attachments/assets/c16a4500-3c4d-4e5c-8f05-9557f38ca21d" />
-  </div>
+  </p>
 
-</details>
+  </details>
+</div>
+
+---
 
 <div align="center">
   <h3>[ProTalkAll] 비지니스 언어매너 학습 프로그램</h3>
