@@ -29,7 +29,7 @@
   <p>2026.01 ~ 2026.02 / 6인 팀프로젝트</p>
   
   <!-- 토글 시작 (가운데 정렬 포함) -->
-  <details open>
+  <details>
   <summary style="cursor: pointer;"><b>💡 한줄 소개: 사회초년생을 위한 비즈니스 언어 학습 및 케어 AI SaaS</b></summary>
   
   <!-- 상세 내용은 왼쪽 정렬로 가독성 확보 -->
@@ -65,7 +65,7 @@
 ### [공모러] 공모주 투자 정보제공 모바일웹
 2026.02 ~ 2026.04 / 6인 팀프로젝트
 
-<details open>
+<details>
 <summary style="cursor: pointer; text-align: center; list-style: none;"><b>💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile Web</b></summary>
 
 <br>
