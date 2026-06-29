@@ -27,9 +27,7 @@
 <div align="center">
   <h3>[ProTalkAll] 비지니스 언어매너 학습 프로그램</h3>
   <p>2026.01 ~ 2026.02 / 6인 팀프로젝트</p>
-
-  <br>
-
+  
   <!-- 토글 시작 (가운데 정렬 포함) -->
   <details open>
   <summary style="cursor: pointer;"><b>💡 한줄 소개: 사회초년생을 위한 비즈니스 언어 학습 및 케어 AI SaaS</b></summary>
