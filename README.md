@@ -57,37 +57,6 @@
 
 <br>
 
-<!-- 프로젝트 개요 -->
-<h2>📌 프로젝트 개요</h2>
-<table width="100%">
-  <thead>
-    <tr>
-      <th width="20%">항목</th>
-      <th width="80%">내용</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>기간</b></td>
-      <td>2025년 (SSAFY 1학기 관통프로젝트)</td>
-    </tr>
-    <tr>
-      <td><b>인원</b></td>
-      <td>2인 풀스택 개발 (기획 · FE · BE · Data/AI 및 협업)</td>
-    </tr>
-    <tr>
-      <td><b>배포</b></td>
-      <td>Frontend &rarr; Vercel / Backend &rarr; Railway</td>
-    </tr>
-    <tr>
-      <td><b>목적</b></td>
-      <td>일일이 확인하기 힘든 만화 커뮤니티 여론을 AI로 요약해 트렌디한 정보를 한 화면에 제공</td>
-    </tr>
-  </tbody>
-</table>
-
-<br>
-
 <!-- 핵심 구현 및 성과 -->
 <h2>✨ 핵심 구현 및 성과</h2>
 
