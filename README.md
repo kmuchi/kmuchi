@@ -62,11 +62,11 @@
 ---
 <div align="center">
 
-### [공모러] 공모주 투자 정보제공 모바일앱
+### [공모러] 공모주 투자 정보제공 모바일웹
 2026.02 ~ 2026.04 / 6인 팀프로젝트
 
 <details open>
-<summary style="cursor: pointer; text-align: center; list-style: none;"><b>💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile App</b></summary>
+<summary style="cursor: pointer; text-align: center; list-style: none;"><b>💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile Web</b></summary>
 
 <br>
 
