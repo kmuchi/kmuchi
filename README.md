@@ -67,12 +67,14 @@
 ### [공모러] 공모주 투자 정보제공 모바일앱
 2026.02 ~ 2026.04 / 6인 팀프로젝트
 
-<!-- 토글을 가운데 정렬하기 위한 div -->
-<div align="center">
-<details open style="display: inline-block; text-align: left; max-width: 800px; width: 100%;">
-<summary style="cursor: pointer; font-weight: bold; text-align: center; list-style: none;">💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile App (클릭하여 여닫기)</summary>
+---
+
+<details open>
+<summary style="cursor: pointer; text-align: center; list-style: none;"><h2><b>💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile App</b></h2></summary>
 
 <br>
+
+<div align="left" style="max-width: 800px; margin: 0 auto; padding: 0 10px;">
 
 ### 🚨 문제 상황
 * 커뮤니티 게시판의 좋아요 기능 구현 시, 게시물 목록과 상세 페이지 이동 간에 좋아요 상태가 초기화되거나, 클릭 시 좋아요 개수가 일시적으로 줄어들었다가 다시 늘어나는 '화면 깜빡임(경쟁 상태)' 현상 발생.
@@ -89,6 +91,8 @@
 ### ✨ 성과 및 느낀점
 * 네트워크 지연 속도에 상관없이 즉각적이고 부드러운 인터랙션을 제공하게 되었으며, 복잡한 비동기 캐시 상태를 안정적으로 제어할 수 있게 됨.
 
+</div>
+
 ---
 
 <!-- 이미지는 다시 가운데 정렬 -->
@@ -99,10 +103,8 @@
 </div>
 
 </details>
-</div>
 
 </div>
-
 <!--
 **Kimchi78/kimchi78** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
