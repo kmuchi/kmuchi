@@ -67,12 +67,12 @@
 ### [공모러] 공모주 투자 정보제공 모바일앱
 2026.02 ~ 2026.04 / 6인 팀프로젝트
 
-</div>
+<!-- 토글을 가운데 정렬하기 위한 div -->
+<div align="center">
+<details open style="display: inline-block; text-align: left; max-width: 800px; width: 100%;">
+<summary style="cursor: pointer; font-weight: bold; text-align: center; list-style: none;">💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile App (클릭하여 여닫기)</summary>
 
----
-
-<details open>
-<summary style="cursor: pointer; font-weight: bold;">💡 한줄 소개: 공모주 투자자를 위한 정보 제공 AI Mobile App (클릭하여 여닫기)</summary>
+<br>
 
 ### 🚨 문제 상황
 * 커뮤니티 게시판의 좋아요 기능 구현 시, 게시물 목록과 상세 페이지 이동 간에 좋아요 상태가 초기화되거나, 클릭 시 좋아요 개수가 일시적으로 줄어들었다가 다시 늘어나는 '화면 깜빡임(경쟁 상태)' 현상 발생.
@@ -91,23 +91,16 @@
 
 ---
 
+<!-- 이미지는 다시 가운데 정렬 -->
 <div align="center">
 
 <img width="240" alt="공모주 상세" src="https://github.com/user-attachments/assets/79dd0292-3479-4f3d-b1f3-a324e55f4a0b" /> <img width="240" alt="IPO Info Home Screen" src="https://github.com/user-attachments/assets/d1a013e5-137f-4ba9-b35d-8599fcf340ee" /> <img width="240" alt="알림내역 관리" src="https://github.com/user-attachments/assets/3446e76a-f022-451e-ba67-ad2d6361bd44" />
 
 </div>
 
-</details></div>
+</details>
+</div>
 
-
-<div  align=center> 
-<a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=kmuchi&utm_content=farm">
-<img
-  src="https://render.gitanimals.org/farms/kmuchi"
-  width="600"
-  height="300"
-/>
-</a>
 </div>
 
 <!--
