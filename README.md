@@ -64,7 +64,7 @@
 ---
 <div align="center">
   <h3>[공모러] 공모주 투자 정보제공 모바일앱</h3>
-  <p>2026.01 ~ 2026.02 / 6인 팀프로젝트</p>
+  <p>2026.02 ~ 2026.04 / 6인 팀프로젝트</p>
 
   <br>
 
@@ -91,9 +91,9 @@
 
   <!-- 이미지는 다시 가운데 정렬 -->
   <p align="center">
-        <img width="390" height="1531" alt="공모주 상세 - 기본 정보 탭 (1)" src="https://github.com/user-attachments/assets/79dd0292-3479-4f3d-b1f3-a324e55f4a0b" />
-        <img width="390" height="1139" alt="IPO Info Home Screen" src="https://github.com/user-attachments/assets/d1a013e5-137f-4ba9-b35d-8599fcf340ee" />
-        <img width="410" height="985" alt="알림내역 관리 (2안) (1)" src="https://github.com/user-attachments/assets/3446e76a-f022-451e-ba67-ad2d6361bd44" />
+        <img width="300" height="1100" alt="공모주 상세 - 기본 정보 탭 (1)" src="https://github.com/user-attachments/assets/79dd0292-3479-4f3d-b1f3-a324e55f4a0b" />
+        <img width="300" height="1100" alt="IPO Info Home Screen" src="https://github.com/user-attachments/assets/d1a013e5-137f-4ba9-b35d-8599fcf340ee" />
+        <img width="300" height="985" alt="알림내역 관리 (2안) (1)" src="https://github.com/user-attachments/assets/3446e76a-f022-451e-ba67-ad2d6361bd44" />
 
   </p>
 
